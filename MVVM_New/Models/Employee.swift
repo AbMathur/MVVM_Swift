@@ -9,18 +9,21 @@
 import Foundation
 
 // MARK: - Welcome
-struct Employees: Decodable {
+struct Employees: Codable {
     let status: String
     let data: [EmployeeData]
 }
 
 // MARK: - Datum
-struct EmployeeData: Decodable {
-    let id, employeeName, employeeSalary, employeeAge: String
-    let profileImage: String
+struct EmployeeData: Codable {
+    var `id`             : Int?    = nil
+    var employeeName   : String? = nil
+    var employeeSalary : Int?    = nil
+    var employeeAge    : Int?    = nil
+    var profileImage   : String? = nil
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case `id`
         case employeeName = "employee_name"
         case employeeSalary = "employee_salary"
         case employeeAge = "employee_age"
