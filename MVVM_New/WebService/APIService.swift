@@ -17,14 +17,10 @@ class APIService :  NSObject {
         
         URLSession.shared.dataTask(with: sourcesURL) { (data, urlResponse, error) in
             if let data = data {
-                
                 let jsonDecoder = JSONDecoder()
-                
                 let empData = try! jsonDecoder.decode(Employees.self, from: data)
-            
-                    completion(empData)
+                completion(empData)
             }
-            
         }.resume()
     }
     
